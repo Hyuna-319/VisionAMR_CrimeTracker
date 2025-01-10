@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert System</title>
+    <style>
+        .alert {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alert Notifications</h1>
+    {% for alert in alerts %}
+        <div class="alert">
+            <strong>Alert!</strong> A {{ alert['class_name'] }} has crossed the line. Coordinates: {{ alert['coordinates'] }}
+        </div>
+    {% endfor %}
+</body>
+</html>
