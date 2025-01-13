@@ -36,6 +36,12 @@ ros2 launch yolo_integration yolo_launch.py
 
 ```
 ssh -X user@.192.168.10.xx
+```
+```
+pip install ultralytics opencv-python requests numpy pyautogui
+sudo apt install ros-humble-turtlebot3 ros-humble-turtlebot3-navigation2 
+```
+```
 scp ~/Downloads/turtlebot_ws.zip user@192.168.10.xx:/home/user
 cd /home/user
 unzip turtlebot_ws.zip
