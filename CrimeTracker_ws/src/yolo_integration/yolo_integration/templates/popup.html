@@ -1,0 +1,19 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detection Result</title>
+    <script>
+        function openPopup() {
+            const popup = window.open("", "Popup", "width=800,height=600");
+            popup.document.write(`<img src="{{ image_url }}" alt="Detected Image" style="width:100%">`);
+        }
+    </script>
+</head>
+<body onload="openPopup()">
+    <h1>Detection Completed</h1>
+    <p>Click the button below to view the result in a popup.</p>
+    <button onclick="openPopup()">View Detection Result</button>
+</body>
+</html>

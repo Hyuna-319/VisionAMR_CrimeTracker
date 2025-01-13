@@ -1,0 +1,231 @@
+/* 기본 설정 */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 타이틀 스타일 */
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    font-size: 30px;
+    color: #333;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
+}
+
+/* 로그인 컨테이너 스타일 */
+.login-container {
+    width: 300px;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* 시스템 대시보드 전체 */
+.view-system {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "yolo_image amr_webcam rviz_view"
+        "detected_objects alert_status amr_status";
+    justify-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 각 뷰 아이템 스타일 */
+.view-item {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/* 그리드 영역 배치 */
+#local-webcam-view,
+#amr-webcam-view,
+#rviz-view {
+    height: 400px;
+}
+
+#detected-objects-view,
+#alert-status-view,
+#amr-status-view {
+    height: 300px;
+}
+
+/* 뷰 제목 스타일 */
+.view-item h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    color: #333;
+}
+
+/* 이미지 스타일 */
+.view-item img {
+    margin-top: 10px;
+    width: 100%;
+    height: auto;   
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* 감지된 객체 테이블 스타일 */
+#detected-objects table, #search-results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#detected-objects th, #detected-objects td,
+#search-results th, #search-results td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#detected-objects th, #search-results th {
+    background-color: #f2f2f2;
+}
+
+/* 알람 표시 스타일 */
+.alert-indicator {
+    padding: 10px;
+    background-color: #ffdddd;
+    border: 1px solid #ffcccc;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.alert.active .alert-indicator {
+    background-color: #FF0000;
+}
+
+/* 버튼 스타일 */
+button {
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 링크 스타일 */
+a {
+    display: inline-block;
+    margin: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 검색 결과 스타일 */
+#search-results {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+#search-results table {
+    width: 100%;
+    font-size: 0.9em;
+}
+
+#search-results th, 
+#search-results td {
+    padding: 4px;
+}
+
+#crime-query {
+    width: 70%;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#search-crime-button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+#detected-objects-view {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 반응형 디자인 (모바일) */
+@media (max-width: 1200px) {
+    .view-system {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            "yolo_image amr_webcam"
+            "rviz_view detected_objects"
+            "alert_status amr_status";
+    }
+}
+
+@media (max-width: 768px) {
+    .view-system {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "yolo_image"
+            "amr_webcam"
+            "rviz_view"
+            "detected_objects"
+            "alert_status"
+            "amr_status";
+    }
+
+    .view-item {
+        height: 300px;
+    }
+}
